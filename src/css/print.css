@@ -1,0 +1,525 @@
+/* Shared print stylesheet for the Free Home Task of the Week Pack.
+   Letter-size, one page per sheet, ink-friendly, no web fonts (offline safe). */
+
+:root {
+  --ink: #23283a;
+  --ink-soft: #5a6180;
+  --paper: #ffffff;
+  --blue: #2f54d9;
+  --blue-soft: #eef1ff;
+  --gold: #b06d10;
+  --gold-soft: #fdf3e0;
+  --green: #1f7a4d;
+  --green-soft: #e9f7ef;
+  --red: #b23a48;
+  --red-soft: #fdeeef;
+  --line: #aeb6d2;
+  --line-soft: #dde1ee;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, "DejaVu Sans", sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.38;
+  color: var(--ink);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+@page {
+  size: 8.5in 11in;
+  margin: 0;
+}
+
+.sheet {
+  width: 8.5in;
+  height: 11in;
+  padding: 0.42in 0.5in 0.72in;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---------- Header block ---------- */
+.masthead {
+  display: flex;
+  align-items: stretch;
+  border: 2pt solid var(--ink);
+  border-radius: 9pt;
+  overflow: hidden;
+}
+
+.masthead .mast-title {
+  flex: 1;
+  padding: 12pt 14pt 11pt;
+}
+
+.masthead .mast-badge {
+  width: 1.85in;
+  background: var(--ink);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8pt 10pt;
+  text-align: center;
+}
+
+.mast-badge .badge-kicker {
+  font-size: 7.5pt;
+  letter-spacing: 1.5pt;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.mast-badge .badge-value {
+  margin-top: 5pt;
+  font-size: 16pt;
+  font-weight: 700;
+  border-bottom: 1pt dotted rgba(255, 255, 255, 0.7);
+  padding-bottom: 3pt;
+  min-width: 1.2in;
+  text-align: center;
+}
+
+.mast-badge .badge-sub {
+  margin-top: 6pt;
+  font-size: 7pt;
+  opacity: 0.85;
+}
+
+h1 {
+  margin: 0;
+  font-size: 19pt;
+  line-height: 1.1;
+  letter-spacing: 0.2pt;
+}
+
+.kicker {
+  margin: 5pt 0 0;
+  font-size: 8.5pt;
+  text-transform: uppercase;
+  letter-spacing: 1.3pt;
+  color: var(--ink-soft);
+}
+
+.weekline {
+  margin-top: 7pt;
+  display: flex;
+  gap: 10pt;
+  font-size: 8pt;
+  color: var(--ink-soft);
+}
+
+.weekline .fill {
+  border-bottom: 1pt dotted var(--line);
+  flex: 1;
+  min-height: 11pt;
+}
+
+/* ---------- Generic fill-in helpers ---------- */
+.fill {
+  display: inline-block;
+  border-bottom: 1pt dotted var(--line);
+  min-height: 14pt;
+}
+
+/* ---------- Footer ---------- */
+.sheet-footer {
+  position: absolute;
+  left: 0.5in;
+  right: 0.5in;
+  bottom: 0.3in;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12pt;
+  font-size: 7.5pt;
+  color: var(--ink-soft);
+  border-top: 0.8pt solid var(--line-soft);
+  padding-top: 5pt;
+}
+
+/* ---------- Shared section titles ---------- */
+.section-title {
+  display: flex;
+  align-items: baseline;
+  gap: 9pt;
+  margin: 14pt 0 7pt;
+  font-size: 12pt;
+  font-weight: 700;
+  letter-spacing: 0.4pt;
+}
+
+.section-title .tag {
+  font-size: 7.5pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2pt;
+  padding: 3pt 8pt;
+  border-radius: 999pt;
+  background: var(--ink);
+  color: #fff;
+  position: relative;
+  top: -2pt;
+}
+
+.hint {
+  font-size: 8.6pt;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+/* ---------- Cut cards (quest board) ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10pt;
+}
+
+.quest-card {
+  border: 1.6pt solid var(--ink);
+  border-style: dashed;
+  border-radius: 9pt;
+  padding: 11pt 12pt 10pt;
+  position: relative;
+  break-inside: avoid;
+}
+
+.quest-card .quest-head {
+  display: flex;
+  align-items: center;
+  gap: 9pt;
+}
+
+.quest-card .quest-name {
+  flex: 1;
+  font-size: 12.5pt;
+  font-weight: 700;
+  border-bottom: 1pt dotted var(--line);
+  min-height: 17pt;
+}
+
+.quest-card .xp-chip {
+  background: var(--gold-soft);
+  border: 1.2pt solid var(--gold);
+  color: var(--gold);
+  border-radius: 999pt;
+  font-weight: 700;
+  font-size: 10.5pt;
+  padding: 3pt 10pt;
+  white-space: nowrap;
+}
+
+.quest-card .quest-desc {
+  margin-top: 7pt;
+  font-size: 9.5pt;
+  color: var(--ink-soft);
+  border-bottom: 1pt dotted var(--line-soft);
+  min-height: 16pt;
+}
+
+.quest-card .quest-meta {
+  margin-top: 9pt;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 8.5pt;
+  color: var(--ink-soft);
+}
+
+.pips {
+  letter-spacing: 2.5pt;
+  color: var(--ink-soft);
+  font-size: 9pt;
+}
+
+.quest-card .accept-line {
+  margin-top: 7pt;
+  font-size: 8.5pt;
+  color: var(--ink-soft);
+}
+
+/* ---------- Leaderboard table ---------- */
+table.leaderboard {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1.8pt solid var(--ink);
+}
+
+table.leaderboard th {
+  background: var(--ink);
+  color: #fff;
+  font-size: 8pt;
+  text-transform: uppercase;
+  letter-spacing: 1pt;
+  padding: 7pt 6pt;
+  text-align: left;
+}
+
+table.leaderboard td {
+  border: 0.8pt solid var(--line);
+  padding: 7pt 6pt;
+  font-size: 9.5pt;
+}
+
+table.leaderboard tr:nth-child(even) td {
+  background: #f7f8fc;
+}
+
+td.c,
+th.c {
+  text-align: center;
+}
+
+.writein {
+  min-height: 18pt;
+  display: block;
+}
+
+/* XP ladder */
+.xp-ladder {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 6pt;
+}
+
+.xp-step {
+  border: 1pt solid var(--line);
+  border-radius: 6pt;
+  padding: 9pt 4pt 7pt;
+  text-align: center;
+  background: #f7f8fc;
+}
+
+.xp-step .lvl {
+  font-weight: 700;
+  font-size: 10.5pt;
+}
+
+.xp-step .need {
+  font-size: 7pt;
+  color: var(--ink-soft);
+  border-top: 0.8pt dotted var(--line-soft);
+  margin-top: 5pt;
+  padding-top: 3pt;
+  min-height: 12pt;
+}
+
+/* Rule callouts */
+.callout {
+  border: 1.4pt solid var(--green);
+  background: var(--green-soft);
+  border-radius: 9pt;
+  padding: 10pt 12pt;
+  font-size: 9.5pt;
+}
+
+.callout b {
+  color: var(--green);
+}
+
+/* ---------- Boss battles ---------- */
+.boss-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 9pt;
+}
+
+.boss-card {
+  border: 1.8pt solid var(--ink);
+  border-radius: 9pt;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.boss-card .boss-top {
+  background: var(--ink);
+  color: #fff;
+  padding: 8pt 10pt;
+}
+
+.boss-card .boss-top.red {
+  background: #a52a38;
+}
+
+.boss-card .boss-top .boss-kicker {
+  font-size: 7pt;
+  text-transform: uppercase;
+  letter-spacing: 1.2pt;
+  opacity: 0.85;
+}
+
+.boss-card .boss-name {
+  font-size: 12pt;
+  font-weight: 700;
+  border-bottom: 1pt dashed rgba(255, 255, 255, 0.6);
+  min-height: 17pt;
+  margin-top: 3pt;
+}
+
+.boss-card .boss-hp {
+  font-size: 7.5pt;
+  letter-spacing: 0.8pt;
+  opacity: 0.9;
+  margin-top: 5pt;
+}
+
+.boss-body {
+  padding: 9pt 10pt 10pt;
+  display: flex;
+  flex-direction: column;
+  gap: 7pt;
+}
+
+.boss-body .stat {
+  font-size: 8.5pt;
+  color: var(--ink-soft);
+}
+
+.boss-body .stat .fill {
+  flex: 1;
+}
+
+.hp-pip-row {
+  display: flex;
+  gap: 3pt;
+  margin-top: 3pt;
+}
+
+.hp-pip {
+  flex: 1;
+  height: 14pt;
+  border: 0.9pt solid var(--ink);
+  border-radius: 2.5pt;
+  background: var(--red-soft);
+}
+
+.mob-row {
+  display: flex;
+  align-items: center;
+  gap: 7pt;
+  border: 1.1pt dashed var(--line);
+  border-radius: 7pt;
+  padding: 7pt 9pt;
+  font-size: 9pt;
+  color: var(--ink-soft);
+}
+
+.mob-row .mob-name {
+  flex: 1;
+  border-bottom: 1pt dotted var(--line-soft);
+  min-height: 14pt;
+}
+
+.mob-row .mob-xp {
+  font-weight: 700;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+/* ---------- Strike team ---------- */
+.role-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 8pt;
+}
+
+.role-card {
+  border: 1.4pt solid var(--ink);
+  border-radius: 8pt;
+  padding: 9pt 10pt 9pt;
+}
+
+.role-card .role-name {
+  font-size: 10.5pt;
+  font-weight: 700;
+}
+
+.role-card .role-desc {
+  font-size: 8pt;
+  color: var(--ink-soft);
+  margin-top: 4pt;
+}
+
+.role-card .role-line {
+  margin-top: 9pt;
+  font-size: 8pt;
+  color: var(--ink-soft);
+}
+
+.check-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6pt 16pt;
+}
+
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 7pt;
+  font-size: 9.5pt;
+  line-height: 1.35;
+}
+
+.check-item .box {
+  width: 11pt;
+  height: 11pt;
+  border: 1.1pt solid var(--ink);
+  border-radius: 2.5pt;
+  flex-shrink: 0;
+  margin-top: 2pt;
+}
+
+.check-item .box.done {
+  border-style: dashed;
+  border-color: var(--line);
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12pt;
+}
+
+.panel {
+  border: 1.4pt solid var(--line);
+  border-radius: 9pt;
+  padding: 10pt 12pt 11pt;
+}
+
+.panel .panel-title {
+  font-size: 9.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1pt;
+  color: var(--ink-soft);
+}
+
+.writing-row {
+  display: flex;
+  gap: 8pt;
+  align-items: flex-end;
+  margin-top: 8pt;
+}
+
+.writing-row .num {
+  font-size: 8.5pt;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.writing-row .fill {
+  flex: 1;
+}

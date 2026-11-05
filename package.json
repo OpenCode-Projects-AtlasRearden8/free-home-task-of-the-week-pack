@@ -1,0 +1,11 @@
+{
+  "name": "free-home-task-of-the-week-pack",
+  "version": "1.0.0",
+  "description": "Free family chores-as-quests printables: weekly quest cards, XP leaderboard, boss-battle cleaning jobs, and a weekend strike team planning sheet. HTML/CSS sources built to unbranded letter-size PDFs.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test test/"
+  }
+}
